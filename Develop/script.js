@@ -1,22 +1,21 @@
 // Assignment code here
-
-var passwordOptions = ["abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]\:;?><,./-="];
+// javascript error : generatePassword is not defined.
 
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate"); // targets generate ID 
+
+function generatePassword() {
+    console.log("test")
+}
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var password = generatePassword(); // there is no generatePassword 
+  var passwordText = document.querySelector("#password"); 
 
-  passwordText.value = password;
+  passwordText.value = password; //displays it onto the screen
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-function generatePassword () {
-  alert("Please choose between at least 8 characters and no more than 128 characters");
-}
+generateBtn.addEventListener("click", writePassword); //when someone clicks the button it will call the writePassword function
