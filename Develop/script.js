@@ -22,13 +22,30 @@ function writePassword() {
 }
 
 function generatePassword() {
-    console.log("test")
 
-    return "Password test";
 }
 
 function userPrompts () {
-    passwordLength = prompt("How many characters would you like your password to contain?");
+    passwordLength = parseInt(prompt("How many characters would you like your password to contain?"));
+
+    if(isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) { //NaN --- not a number
+        alert("Password length needs to be a number between 8 - 128 digits. Try again.");
+        return false;
+    }
+
+   if (confirm("Click OK to confirm including special characters.")) {
+    choiceArr = choiceArr.concat(specialOptions);
+   }
+   if (confirm("Click OK to confirm including numeric characters.")) {
+    choiceArr = choiceArr.concat(numOptions);
+   }
+   if (confirm("Click OK to confirm including upperase characters.")) {
+    choiceArr = choiceArr.concat(upperCase);
+   }
+   if (confirm("Click OK to confirm including lowercase characters.")) {
+    choiceArr = choiceArr.concat(lowerCase);
+   }
+   return true;
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword); //when someone clicks the button it will call the writePassword function
